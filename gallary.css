@@ -1,0 +1,141 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    text-align: center;
+    background: linear-gradient(to right, #837d7d, #f0f0f0);
+    color: rgb(54, 50, 50);
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    font-size: 2.5rem;
+    margin-top: 20px;
+    color: #333;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    margin: 30px auto;
+    max-width: 1000px;
+}
+
+.gallery img {
+    width: 180px;
+    height: 130px;
+    object-fit: cover;
+    cursor: pointer;
+    border-radius: 12px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.2s;
+    border: 3px solid rgba(255, 255, 255, 0.3);
+}
+
+.gallery img:hover {
+    transform: scale(1.12);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+    opacity: 0.9;
+}
+
+.lightbox {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.85);
+    justify-content: center;
+    align-items: center;
+    animation: fadeIn 0.4s ease-in-out;
+}
+
+.lightbox img {
+    max-width: 90%;
+    max-height: 85vh;
+    border-radius: 12px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
+    animation: zoomIn 0.4s ease-in-out;
+}
+
+.close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    font-size: 40px;
+    color: white;
+    cursor: pointer;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.close:hover {
+    color: #ff3d3d;
+    transform: scale(1.1);
+}
+
+.nav-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 40px;
+    color: white;
+    background: rgba(255, 255, 255, 0.3);
+    border: none;
+    padding: 12px 18px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out, transform 0.2s ease;
+}
+
+.nav-btn:hover {
+    background: rgba(255, 255, 255, 0.5);
+    transform: scale(1.1);
+}
+
+.prev { left: 20px; }
+.next { right: 20px; }
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .gallery img {
+        width: 140px;
+        height: 100px;
+    }
+
+    .nav-btn {
+        font-size: 30px;
+        padding: 8px 14px;
+    }
+
+    .close {
+        font-size: 30px;
+    }
+}
+@media (max-width: 480px) {
+    .gallery img {
+        width: 110px;
+        height: 80px;
+    }
+
+    .nav-btn {
+        font-size: 25px;
+        padding: 6px 10px;
+    }
+
+    .close {
+        font-size: 28px;
+    }
+}
+
+/* Keyframe Animations */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes zoomIn {
+    from { transform: scale(0.85); }
+    to { transform: scale(1); }
+}
